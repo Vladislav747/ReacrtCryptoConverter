@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,8 +11,13 @@ import Paper from '@material-ui/core/Paper';
 
 import { TCoin, TCoinDiff } from '../../types';
 
+import ConverterStore from '../../stores/converterStore';
+import CurrenciesStore from '../../stores/currenciesStore';
+
 type ICryptoTable = {
-  classes: any;
+    classes: any,
+    currenciesStore?: CurrenciesStore;
+    converterStore?: ConverterStore;
 };
 
 const CryptoTable = ({classes}:ICryptoTable) =>{
